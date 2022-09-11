@@ -27,18 +27,21 @@ const postSlice = createSlice({
       reducer: (state, action: PayloadAction<Post>) => {
         state.push(action.payload);
       },
-      prepare: (title: string, content: string) => {
+      prepare: (title: string, content: string, userId: string) => {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            userId,
           },
         };
       },
     },
   },
 });
+
+export const selectAllPost = (state: any) => state.posts;
 
 export const { postAdded } = postSlice.actions;
 

@@ -1,11 +1,10 @@
 import { FC } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
+import { selectAllPost } from "../../store/post/postSlice";
+import PostAuthor from "./PostAuthor";
 
 const PostList: FC = () => {
-  const posts = useAppSelector((state) => state.posts);
-
-  // const orderPost = posts.slice().sort((a, b) => b.date.localecompare(a.date));
-  // console.log("dfsd", orderPost);
+  const posts = useAppSelector(selectAllPost);
 
   return (
     <div>
@@ -17,6 +16,7 @@ const PostList: FC = () => {
         >
           <h3 className="font-bold text-blue-600">{post.title}</h3>
           <p className="text-gray-800">{post.content.substring(0, 100)}</p>
+          <PostAuthor userId={post.id} />
         </article>
       ))}
     </div>
