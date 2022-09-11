@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { selectAllPost } from "../../store/post/postSlice";
 import PostAuthor from "./PostAuthor";
+import TimeAgo from "./TimeAgo";
 
 const PostList: FC = () => {
   const posts = useAppSelector(selectAllPost);
@@ -17,6 +18,7 @@ const PostList: FC = () => {
           <h3 className="font-bold text-blue-600">{post.title}</h3>
           <p className="text-gray-800">{post.content.substring(0, 100)}</p>
           <PostAuthor userId={post.id} />
+          <TimeAgo timeStamp={post.date} />
         </article>
       ))}
     </div>
