@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AddPostForm from "./components/post/AddPostForm";
+import PostList from "./components/post/PostList";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container m-auto">
+      <div className="p-5 grid grid-cols-2 gap-16">
+        <AddPostForm />
+        <PostList />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
